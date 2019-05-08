@@ -1,0 +1,29 @@
+Create Diner Components:
+
+Components:
+  1) Menu Nav Component -=> food selection menu(food type), main menu, login, create employee
+  2) Landing Page -=> bg image , main menu, order button , opening hrs
+  3) food Items Component -=> food type menu, order builder
+  4) item Cart Component -=> food thumbnails, food names, cost, purchase, cancel
+  5) login Component -=> name , pw, checkin,
+  6) order builder Component -=> stock food items, total cost
+  7) opening hrs Component -=> We're open sign, add Datetime to check if open at set time
+  8) create employee Component -=> fname, lname, contact #, password
+
+Mat-Dialogs:
+
+  1) purchase successful
+
+
+Build Components Order:
+
+  1. foodSelection *
+  2. orderBuilder *
+  3. NavMenu* 
+  4. foodMenu*
+  5. itemCart*
+  6. invoice*
+  7. createEmployee
+  8. login
+  9. LandingPage
+  10. openHrs

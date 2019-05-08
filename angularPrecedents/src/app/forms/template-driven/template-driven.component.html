@@ -1,0 +1,61 @@
+
+<div class='container mt-5 col-8'>
+    <h2 class="text-center text-primary">
+      login
+    </h2>
+    <br/>
+
+    <!-------------------------- Template-Driver Form ----------------------------->
+
+    <h3> Template-Driven Form</h3>
+
+    <form (ngSubmit)='onSubmit(f)' #f="ngForm"> <!-- Variable assign to ngForm always -->
+    <br/>
+                                                               <!-- ngModel for one way binding to a variable -->
+    <div ngModelGroup='userData' #userDataf="ngModelGroup">
+
+    <div class='form-group' >
+      <input mat-input name='first' minlength=2
+       [ngModel]="first" type='text' #firstf="ngModel"
+        [ngClass]="{'border border-danger':firstf.touched && firstf.invalid, 'form-control':true }" required/>
+       <span *ngIf='firstf.invalid' class="text-danger">please enter first</span>
+    </div>
+
+    <div class="form-group">
+      <input mat-input class="form-control" name='second' minlength=2
+       [ngModel]='' type='text' #secondf="ngModel" required [ngClass]=
+       "{'border border-danger':secondf.touched && secondf.invalid, 'form-control':true }"/> <!-- touched: once you enter the field -->
+       <span *ngIf="secondf.invalid && secondf.dirty" class="text-danger">please enter second</span> <!-- dirty: once you made changes -->
+    </div>
+    </div>
+
+    <div class="form-group">
+        <select mat-input class="form-control" name='third' minlength=1 maxlength=2
+         [ngModel]='third' type='text' #thirdf="ngModel"
+         [ngClass]="{'border border-danger':thirdf.touched && thirdf.invalid, 'form-control':true }" required>
+        <option value=111 >...</option>
+        <option value=1>one</option>
+        <option value=2> two</option>
+        <option value=3>three</option>
+        </select>
+         <span *ngIf="thirdf.invalid" class="text-danger">please Select Third</span>
+      </div>
+
+    <button class="btn btn-primary" [disabled]=f.invalid type="submit">Submit</button><br/><br/>
+    <button class="btn btn-primary" type='button' (click)="patchFieldViewChild()">Set Value</button>
+
+    </form>
+
+    <!-- ------------------------- End Template-Driven From ------------------------ -->
+
+
+
+
+
+
+
+
+
+
+
+    </div>

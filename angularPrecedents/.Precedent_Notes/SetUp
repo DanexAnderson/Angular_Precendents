@@ -1,0 +1,27 @@
+
+project SetUp:
+
+1. NodeJs Backend: npm init -y
+
+    1) install Express => npm i express
+    2) install Nodemon => sudo npm install -g Nodemon
+    3) install MySQL => npm i MySQL
+    4) npm install --save jsonwebtoken
+    5) npm install --save bcryptjs
+    6) npm i cors mongoose body-parser --save
+
+  To run server Command: nodemon
+
+
+2. Create Server.js file
+
+3. Angular Material:=>  ng add @angular/material --save
+
+4. sudo ngBootstrap (Ensure file permission):=>  sudo ng add @ng-bootstrap/schematics --save
+
+5. change owner:=>   chown -R dane:dane fileName
+
+6. change permissions :=> chmod -R 777 fileName
+
+
+
