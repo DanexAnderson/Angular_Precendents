@@ -32,7 +32,6 @@ export class ReactiveComponent implements OnInit {
 
   asyncErrorFromServer(formField: FormControl): Promise<any> | Observable<any>  {
 
-    console.log('here');
     const promise =  new Promise<any>((resolve, reject) => {
 
       setTimeout(() => {
@@ -69,6 +68,30 @@ export class ReactiveComponent implements OnInit {
 
   }
 
+  setFieldsReactiveForm() {
+
+       // initialize form with values
+       this.reactiveForm.setValue ({
+        first: 'this is first',
+        second: 'this is second',
+        third:   3,
+        gender: 'male'
+      });
+
+      // this.reactiveForm.reset();
+  }
+
+  patchFieldsReactiveForm() {
+
+    // patch form with values
+    this.reactiveForm.patchValue ({
+     first: 'this is first patch',
+     third:   1,
+     gender: 'female'
+   });
+}
+
+
 
   ngOnInit() {
 
@@ -78,12 +101,20 @@ export class ReactiveComponent implements OnInit {
                             // default value, sync validators
       first: new FormControl(null, {validators: [Validators.required, Validators.minLength(2),
          this.customValidatorForbiddenText.bind(this)]}),
+
       second: new FormControl(null, [Validators.required, Validators.minLength(2)], // Must not be placed in a named array for Async
        this.asyncErrorFromServer.bind(this)),  // For async validation must not be placed in a named array
+
       third: new FormControl('111', {validators: [Validators.required, Validators.minLength(1)]}),
       gender: new FormControl('male', {validators: [Validators.required, Validators.minLength(2)]}),
 
     });
+
+    // On Change of FormField Value
+    /* this.reactiveForm.get('first').valueChanges.subscribe(
+      (value) => console.log(value)
+    ); */
+
   }
 
 }
