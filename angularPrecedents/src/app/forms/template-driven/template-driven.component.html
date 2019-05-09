@@ -9,7 +9,7 @@
 
     <h3> Template-Driven Form</h3>
 
-    <form (ngSubmit)='onSubmit(f)' #f="ngForm"> <!-- Variable assign to ngForm always -->
+    <form (ngSubmit)='onSubmit(f)' #f="ngForm"> <!-- ngForm assign to Variable always -->
     <br/>
                                                                <!-- ngModel for one way binding to a variable -->
     <div ngModelGroup='userData' #userDataf="ngModelGroup">
@@ -42,7 +42,10 @@
       </div>
 
     <button class="btn btn-primary" [disabled]=f.invalid type="submit">Submit</button><br/><br/>
-    <button class="btn btn-primary" type='button' (click)="patchFieldViewChild()">Set Value</button>
+
+    <button class="btn btn-primary" type='button' (click)="patchFieldViewChild()">Patch Value</button>
+    <br/><br/>
+    <button class="btn btn-primary" type='button' (click)="setFieldsViewChild()">Set Value</button>
 
     </form>
 

@@ -1,0 +1,71 @@
+
+<div class='container mt-5 col-8'>
+    <h2 class="text-center text-primary">
+      login
+    </h2>
+    <br/>
+
+    <!-------------------------- Reactive Form ----------------------------->
+
+    <h3> Reactive Form</h3>
+
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()" > <!-- FormGroup Variable assigned to binded FormGroup field attribute always -->
+    <br/>
+
+    <div class='form-group' >       <!-- formControlName in place of the name attribute -->
+      <input mat-input formControlName="first" minlength=2 type='text'
+        [ngClass]="{'border border-danger':reactiveForm.get('first').touched && reactiveForm.get('first').invalid, 'form-control':true }"
+         />
+       <span *ngIf="reactiveForm.get('first').invalid && reactiveForm.get('first').dirty" class="text-danger">
+         <span *ngIf="reactiveForm.get('first').errors['forbiddenText']"> Wont accept Profanity, </span>
+         please enter valid first</span>
+    </div>
+
+    <div class="form-group">
+      <input mat-input class="form-control" formControlName="second" minlength=2 type='text'  [ngClass]=
+       "{'border border-danger':reactiveForm.get('second').touched && reactiveForm.get('second').invalid, 'form-control':true }"/> <!-- touched: once you enter the field -->
+       <span *ngIf="reactiveForm.get('second').invalid && reactiveForm.get('second').dirty" class="text-danger">
+          <span *ngIf="reactiveForm.get('second').errors['textIsForbidden']"> Email Already Exist </span>
+        please enter second</span> <!-- dirty: once you made changes -->
+    </div>
+    <br/>
+
+    <div class="radio " *ngFor="let gender of genders">
+      <label>
+          <input type="radio" formControlName= "gender" [value]="gender"  />  {{gender}}
+      </label>
+    </div><br/>
+
+    <div class="form-group">
+        <select mat-input class="form-control" formControlName="third" minlength=1 maxlength=2 type='text'
+         [ngClass]="{'border border-danger':reactiveForm.get('third').touched && reactiveForm.get('third').invalid,
+          'form-control':true }" >
+        <option value=111 >...</option>
+        <option value=1>one</option>
+        <option value=2> two</option>
+        <option value=3>three</option>
+        </select>
+         <span *ngIf="reactiveForm.get('third').invalid && reactiveForm.get('third').dirty" class="text-danger">please Select Third</span>
+      </div>
+
+    <button class="btn btn-primary" [disabled]=reactiveForm.invalid type="submit">Submit</button><br/><br/>
+
+    <button class="btn btn-primary" type='button' (click)="patchFieldViewChild()">Patch Value</button>
+    <br/><br/>
+    <button class="btn btn-primary" type='button' (click)="setFieldsViewChild()">Set Value</button>
+
+    </form>
+
+    <!-- ------------------------- Reactive From ------------------------ -->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
